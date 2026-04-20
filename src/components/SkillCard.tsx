@@ -55,7 +55,7 @@ const SkillCard = ({
           <div className="author">
             <img src="/logo512.png" alt="author avatar" className="avatar" />
             <div className="author-copy">
-              <p>Brandon</p>+{" "}
+              <p>Brandon</p>
               <p>
                 {createdAt
                   ? new Date(createdAt).toLocaleDateString()
