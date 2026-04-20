@@ -20,10 +20,14 @@ const SkillCard = ({
 }: SkillRecord) => {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(installCommand);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(installCommand);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
   };
 
   return (
@@ -51,8 +55,12 @@ const SkillCard = ({
           <div className="author">
             <img src="/logo512.png" alt="author avatar" className="avatar" />
             <div className="author-copy">
-              <p>Brandon</p>
-              <p>{new Date(createdAt as string).toLocaleDateString()}</p>
+              <p>Brandon</p>+{" "}
+              <p>
+                {createdAt
+                  ? new Date(createdAt).toLocaleDateString()
+                  : "Unknown"}
+              </p>
             </div>
           </div>
           <p className="category">{category}</p>
@@ -102,7 +110,7 @@ const SkillCard = ({
             <button
               type="button"
               className="save"
-              aria-label="Daved state"
+              aria-label="Saved state"
               disabled
             >
               <Bookmark size={16} />
