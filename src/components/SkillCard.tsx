@@ -90,7 +90,7 @@ const SkillCard = ({
             type="button"
             className="copy"
             onClick={handleCopy}
-            aria-label="Copy install command"
+            aria-label={copied ? "Copied" : "Copy install command"}
           >
             {copied ? <CheckIcon size={14} /> : <CopyIcon size={14} />}
           </button>
@@ -98,7 +98,12 @@ const SkillCard = ({
 
         <div className="footer">
           <div className="stats">
-            <button type="button" className="upvote" disabled>
+            <button
+              type="button"
+              className="upvote"
+              aria-label={`Upvote, ${tags.length} votes`}
+              disabled
+            >
               <ArrowBigUpIcon size={16} fill="currentColor" />
               <span>{tags.length}</span>
             </button>
