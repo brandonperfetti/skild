@@ -7,6 +7,7 @@ import {
   CopyIcon,
   MessageSquare,
 } from "lucide-react";
+import { usePostHog } from "posthog-js/react";
 import { useEffect, useRef, useState } from "react";
 
 const SkillCard = ({
@@ -18,6 +19,7 @@ const SkillCard = ({
   tags,
   title,
 }: SkillRecord) => {
+  const posthog = usePostHog();
   const [copied, setCopied] = useState(false);
   const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -33,6 +35,11 @@ const SkillCard = ({
       setCopied(true);
       if (copyTimeoutRef.current !== null) clearTimeout(copyTimeoutRef.current);
       copyTimeoutRef.current = setTimeout(() => setCopied(false), 2000);
+      posthog.capture("skill_install_command_copied", {
+        skill_title: title,
+        skill_category: category,
+        install_command: installCommand,
+      });
     } catch {
       setCopied(false);
     }
@@ -103,6 +110,13 @@ const SkillCard = ({
               className="upvote"
               aria-label={`Upvote, ${tags.length} votes`}
               disabled
+              onClick={() =>
+                posthog.capture("skill_upvote_clicked", {
+                  skill_title: title,
+                  skill_category: category,
+                  vote_count: tags.length,
+                })
+              }
             >
               <ArrowBigUpIcon size={16} fill="currentColor" />
               <span>{tags.length}</span>
@@ -115,7 +129,17 @@ const SkillCard = ({
           </div>
 
           <div className="actions">
-            <Link to="/skills" className="open" title={`Open ${title}`}>
+            <Link
+              to="/skills"
+              className="open"
+              title={`Open ${title}`}
+              onClick={() =>
+                posthog.capture("skill_opened", {
+                  skill_title: title,
+                  skill_category: category,
+                })
+              }
+            >
               <span>Open</span>
               <ArrowUpRight size={14} />
             </Link>
@@ -125,6 +149,12 @@ const SkillCard = ({
               className="save"
               aria-label="Saved state"
               disabled
+              onClick={() =>
+                posthog.capture("skill_bookmarked", {
+                  skill_title: title,
+                  skill_category: category,
+                })
+              }
             >
               <Bookmark size={16} />
             </button>
