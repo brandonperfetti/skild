@@ -1,0 +1,7 @@
+# This is a file for you to write an un-named mutation. 
+# Only one un-named mutation is allowed per file.
+mutation {
+  skill_insert(
+    data: {id: "5e502067-1ecb-4195-a7f4-ff5a22251278", authorClerkId: "user_3CjnnC5zVgZqXzWCCkw1IShKQkA", createdAt: "2026-04-25T19:56:21.341Z", description: "Performs real-time web searches and returns summarized results from top sources.", installCommand: "npx skild add web-search", promptConfig: "You have access to a real-time web search tool. Use it whenever a user asks about current events, recent facts, or any topic that may require up-to-date information. Invoke the tool with a concise, targeted search query and return a clear summary of the top results, citing sources where relevant.", tags: ["search", "web", "retrieval"], title: "Web Search", usageExample: "Perform a real-time web search and return summarized results from top sources."}
+  )
+}

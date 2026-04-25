@@ -1,0 +1,97 @@
+{
+  "id": "user_3CjnnC5zVgZqXzWCCkw1IShKQkA",
+  "object": "user",
+  "username": "brandonperfetti",
+  "first_name": "Brandon",
+  "last_name": "Perfetti",
+  "locale": null,
+  "image_url": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ2l0aHViL2ltZ18zQ2pubkE4ZTFuOUxIcU91QjV4Mld4OUZ1UmMifQ",
+  "has_image": true,
+  "primary_email_address_id": "idn_3CjnmettsssWt9da0tyESY74viP",
+  "primary_phone_number_id": null,
+  "primary_web3_wallet_id": null,
+  "password_enabled": false,
+  "two_factor_enabled": false,
+  "totp_enabled": false,
+  "backup_code_enabled": false,
+  "email_addresses": [
+    {
+      "id": "idn_3CjnmettsssWt9da0tyESY74viP",
+      "object": "email_address",
+      "email_address": "brandon@brandonperfetti.com",
+      "reserved": false,
+      "verification": {
+        "object": "verification_from_oauth",
+        "status": "verified",
+        "strategy": "from_oauth_github",
+        "attempts": null,
+        "expire_at": null
+      },
+      "linked_to": [
+        {
+          "type": "oauth_github",
+          "id": "idn_3Cjnmaqqjh6gZDpIlbBcbICsxZm"
+        }
+      ],
+      "matches_sso_connection": false,
+      "created_at": 1776908006036,
+      "updated_at": 1776908010209
+    }
+  ],
+  "phone_numbers": [],
+  "web3_wallets": [],
+  "passkeys": [],
+  "external_accounts": [
+    {
+      "object": "external_account",
+      "id": "eac_3CjnmeeBO2v9noPfX7KZtdqAXmC",
+      "provider": "oauth_github",
+      "identification_id": "idn_3Cjnmaqqjh6gZDpIlbBcbICsxZm",
+      "provider_user_id": "2780463",
+      "approved_scopes": "read:user user:email",
+      "email_address": "brandon@brandonperfetti.com",
+      "email_address_verified": true,
+      "first_name": "Brandon",
+      "last_name": "Perfetti",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2780463?v=4",
+      "image_url": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2F2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3UvMjc4MDQ2Mz92PTQiLCJzIjoiWDNDM0gxZzFNd2hDdERnYmpEWVV5S0pCdUZ5Y2h0VlB0SGk3NCsrTDBaOCJ9",
+      "username": "brandonperfetti",
+      "phone_number": null,
+      "public_metadata": {},
+      "label": null,
+      "created_at": 1776908006017,
+      "updated_at": 1776908006017,
+      "verification": {
+        "object": "verification_oauth",
+        "status": "verified",
+        "strategy": "oauth_github",
+        "attempts": null,
+        "expire_at": 1776908604564
+      }
+    }
+  ],
+  "saml_accounts": [],
+  "enterprise_accounts": [],
+  "password_last_updated_at": null,
+  "public_metadata": {},
+  "private_metadata": {},
+  "unsafe_metadata": {},
+  "external_id": null,
+  "last_sign_in_at": 1776908010232,
+  "banned": false,
+  "locked": false,
+  "lockout_expires_in_seconds": null,
+  "verification_attempts_remaining": 100,
+  "created_at": 1776908010184,
+  "updated_at": 1776908010256,
+  "delete_self_enabled": true,
+  "bypass_client_trust": false,
+  "create_organization_enabled": true,
+  "last_active_at": 1777145071417,
+  "mfa_enabled_at": null,
+  "mfa_disabled_at": null,
+  "legal_accepted_at": null,
+  "requires_password_reset": false,
+  "deprovisioned": false,
+  "profile_image_url": "https://images.clerk.dev/oauth_github/img_3CjnnA8e1n9LHqOuB5x2Wx9FuRc"
+}

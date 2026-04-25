@@ -1,0 +1,13 @@
+specVersion: "v1"
+serviceId: "skild-6795b-service"
+location: "us-west2"
+schemas:
+  - source: "./schema"
+    datasource:
+      postgresql:
+        database: "skild-6795b-database"
+        cloudSql:
+          instanceId: "skild-6795b-instance"
+          # schemaValidation: "STRICT"     # STRICT mode makes Postgres schema match Data Connect exactly.
+          # schemaValidation: "COMPATIBLE" # COMPATIBLE mode makes Postgres schema compatible with Data Connect.
+connectorDirs: ["./connectors"]
