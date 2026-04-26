@@ -17,6 +17,8 @@
   "dependencies": {
     "@clerk/clerk-react": "^5.61.3",
     "@clerk/tanstack-react-start": "^1.1.5",
+    "@dataconnect/generated": "file:src/dataconnect-generated",
+    "@tanstack-query-firebase/react": "^2.0.0",
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/react-devtools": "latest",
     "@tanstack/react-query": "latest",
@@ -29,6 +31,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.577.0",
+    "firebase": "^12.11.0",
     "posthog-js": "^1.370.1",
     "posthog-node": "^5.29.5",
     "react": "^19.2.0",

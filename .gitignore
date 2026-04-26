@@ -14,3 +14,10 @@ todos.json
 .env.local
 
 .fallow
+
+# firebase data connect
+.firebase
+.firebase-debug.log
+dataconnect/.dataconnect
+user.json
+**/user.json

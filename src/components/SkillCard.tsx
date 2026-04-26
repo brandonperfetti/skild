@@ -9,19 +9,22 @@ import {
 } from "lucide-react";
 import { usePostHog } from "posthog-js/react";
 import { useEffect, useRef, useState } from "react";
+import type { GetSkillsData } from "#/dataconnect-generated";
+
+type SkillCardProps = GetSkillsData["skills"][number];
 
 const SkillCard = ({
-  authorEmail,
-  category,
   createdAt,
   description,
   installCommand,
   tags,
   title,
-}: SkillRecord) => {
+  author,
+}: SkillCardProps) => {
   const posthog = usePostHog();
   const [copied, setCopied] = useState(false);
   const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const category = tags[0] || "General";
 
   useEffect(() => {
     return () => {
@@ -68,9 +71,13 @@ const SkillCard = ({
       <div className="body">
         <div className="meta">
           <div className="author">
-            <img src="/logo512.png" alt="author avatar" className="avatar" />
+            <img
+              src={author.imageUrl || "/logo512.png"}
+              alt={`${author.username}'s avatar`}
+              className="avatar"
+            />
             <div className="author-copy">
-              <p>Brandon</p>
+              <p>{author.username}</p>
               <p>
                 {createdAt
                   ? new Date(createdAt).toLocaleDateString()
@@ -124,7 +131,7 @@ const SkillCard = ({
 
             <div className="comments">
               <MessageSquare size={14} />
-              <span>{authorEmail ? 1 : 0}</span>
+              <span>{author.email ? 1 : 0}</span>
             </div>
           </div>
 
