@@ -19,3 +19,5 @@ todos.json
 .firebase
 .firebase-debug.log
 dataconnect/.dataconnect
+user.json
+**/user.json
