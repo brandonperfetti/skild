@@ -54,16 +54,21 @@ function PostHogIdentifier() {
   const { user } = useUser();
   const posthog = usePostHog();
 
+  const isSignedIn = !!user;
+
   useEffect(() => {
-    if (user) {
+    const hasAnalyticsConsent = posthog.has_opted_in_capturing();
+
+    if (isSignedIn && user && hasAnalyticsConsent) {
       posthog.identify(user.id, {
-        email: user.primaryEmailAddress?.emailAddress,
         name: user.fullName,
+        email: user.primaryEmailAddress?.emailAddress,
+        // Add any other relevant user properties here
       });
-    } else {
+    } else if (isSignedIn === false) {
       posthog.reset();
     }
-  }, [user, posthog]);
+  }, [isSignedIn, user, posthog]);
 
   return null;
 }
