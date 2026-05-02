@@ -51,12 +51,12 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 });
 
 function PostHogIdentifier() {
-  const { user } = useUser();
+  const { isLoaded, isSignedIn, user } = useUser();
   const posthog = usePostHog();
 
-  const isSignedIn = !!user;
-
   useEffect(() => {
+    if (!isLoaded) return;
+
     const hasAnalyticsConsent = posthog.has_opted_in_capturing();
 
     if (isSignedIn && user && hasAnalyticsConsent) {
@@ -68,7 +68,7 @@ function PostHogIdentifier() {
     } else if (isSignedIn === false) {
       posthog.reset();
     }
-  }, [isSignedIn, user, posthog]);
+  }, [isLoaded, isSignedIn, user, posthog]);
 
   return null;
 }
