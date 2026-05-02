@@ -155,9 +155,8 @@ function RouteComponent() {
         {/* Section 1: Basic Info */}
         <div className="block">
           <FieldGroup>
-            <form.Field
-              name="title"
-              children={(field) => {
+            <form.Field name="title">
+              {(field) => {
                 const isInvalid =
                   field.state.meta.isTouched && !field.state.meta.isValid;
                 return (
@@ -179,10 +178,9 @@ function RouteComponent() {
                   </Field>
                 );
               }}
-            />
-            <form.Field
-              name="description"
-              children={(field) => {
+            </form.Field>
+            <form.Field name="description">
+              {(field) => {
                 const isInvalid =
                   field.state.meta.isTouched && !field.state.meta.isValid;
                 return (
@@ -205,10 +203,9 @@ function RouteComponent() {
                   </Field>
                 );
               }}
-            />
-            <form.Field
-              name="tags"
-              children={(field) => {
+            </form.Field>
+            <form.Field name="tags">
+              {(field) => {
                 const isInvalid =
                   field.state.meta.isTouched && !field.state.meta.isValid;
                 return (
@@ -230,7 +227,7 @@ function RouteComponent() {
                   </Field>
                 );
               }}
-            />
+            </form.Field>
           </FieldGroup>
         </div>
 
@@ -240,9 +237,8 @@ function RouteComponent() {
         {/* Section 2: Installation */}
         <div className="block">
           <FieldGroup>
-            <form.Field
-              name="installCommand"
-              children={(field) => {
+            <form.Field name="installCommand">
+              {(field) => {
                 const isInvalid =
                   field.state.meta.isTouched && !field.state.meta.isValid;
                 return (
@@ -266,10 +262,9 @@ function RouteComponent() {
                   </Field>
                 );
               }}
-            />
-            <form.Field
-              name="promptConfig"
-              children={(field) => {
+            </form.Field>
+            <form.Field name="promptConfig">
+              {(field) => {
                 const isInvalid =
                   field.state.meta.isTouched && !field.state.meta.isValid;
                 return (
@@ -294,7 +289,7 @@ function RouteComponent() {
                   </Field>
                 );
               }}
-            />
+            </form.Field>
           </FieldGroup>
         </div>
 
@@ -304,9 +299,8 @@ function RouteComponent() {
         {/* Section 3: Usage */}
         <div className="block">
           <FieldGroup>
-            <form.Field
-              name="usageExample"
-              children={(field) => {
+            <form.Field name="usageExample">
+              {(field) => {
                 const isInvalid =
                   field.state.meta.isTouched && !field.state.meta.isValid;
                 return (
@@ -329,7 +323,7 @@ function RouteComponent() {
                   </Field>
                 );
               }}
-            />
+            </form.Field>
           </FieldGroup>
         </div>
 
